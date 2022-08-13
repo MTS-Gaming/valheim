@@ -6,7 +6,8 @@ ENV VALHEIM_WORLD="valheim"
 ENV VALHEIM_PASSWORD="beergood"
 ENV VALHEIM_PUBLIC="1"
 
-RUN ["/home/steam/steamcmd/steamcmd.sh", "+login", "anonymous", \
+RUN ["/home/steam/steamcmd/steamcmd.sh", \
+    "+login", "anonymous", \
     "+app_update", "896660", "validate", \
     "+quit"]
 
