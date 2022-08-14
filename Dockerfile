@@ -1,5 +1,10 @@
 FROM ghcr.io/mts-gaming/docker-steamcmd-base
 
+# Labels
+LABEL org.opencontainers.image.authors="andrew_stclair@hotmail.com"
+LABEL description="Valheim Dedicated Server"
+LABEL version="v1.0.0"
+
 ENV VALHEIM_NAME="valheim"
 ENV VALHEIM_PORT="2456"
 ENV VALHEIM_WORLD="valheim"
