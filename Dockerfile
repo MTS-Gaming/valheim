@@ -17,3 +17,7 @@ RUN ["/home/steam/steamcmd/steamcmd.sh", \
     "+quit"]
 
 ENTRYPOINT [ "valheim_server", "-nographhics", "-batchhmode", "-name", "${VALHEIM_NAME}", "-port", "${VALHEIM_PORT}", "-world", "${VALHEIM_WORLD}", "-password", "${VALHEIM_PASSWORD}", "-public", "${VALHEIM_PUBLIC}" ]
+
+EXPOSE 2456/udp
+EXPOSE 2457/udp
+EXPOSE 2458/udp
