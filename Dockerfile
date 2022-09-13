@@ -10,6 +10,8 @@ ENV VALHEIM_PORT="2456"
 ENV VALHEIM_WORLD="valheim"
 ENV VALHEIM_PASSWORD="beergood"
 ENV VALHEIM_PUBLIC="1"
+ENV LD_LIBRARY_PATH="./linux64:$LD_LIBRARY_PATH"
+ENV SteamAppId="892970"
 
 RUN ["/home/steam/steamcmd/steamcmd.sh", \
     "+login", "anonymous", \
