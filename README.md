@@ -1,19 +1,31 @@
-# docker-steamcmd-template
-Template repository for building images with our steamcmd baseimage
+# Valheim Dedicated Server
+The Valheim dedicated server in a container
 
 ## Usage
 
-```Dockerfile
-FROM ghcr.io/mts-gaming/valheim:latest
+```bash
+docker run -d \
+    -e VALHEIM_NAME="Valheim Online" \
+    -e VALHEIM_PORT="Password" \
+    -e VALHEIM_PASSWORD="ThorOdinson" \
+    -e VALHEIM_WORLD="valheim" \
+    -e VALHEIM_PUBLIC="1" \
+    -v valheim:/root/.config/unity3d/IronGate/Valheim
+    ghcr.io/mts-gaming/valheim:latest
 ```
 
-```bash
-docker run ghcr.io/mts-gaming/valheim:latest
-```
+## Environment Variables
+
+| Environment Variable | Description          |
+|----------------------|----------------------|
+| `VALHEIM_NAME`       | Server name          |
+| `VALHEIM_PORT`       | Server port          |
+| `VALHEIM_PASSWORD`   | Server Password      |
+| `VALHEIM_WORLD`      | World name           |
+| `VALHEIM_PUBLIC`     | Is the server public |
 
 ## Volumes
 
-| Path                                 | Description                                                                         | Volume Definition |
-|--------------------------------------|-------------------------------------------------------------------------------------|-------------------|
-| `/home/steam/.local`                 | Where games usually store their savegames.                                          | Yes               |
-| `/home/steam/Steam/steamapps/common` | Where games are installed by default (I.E. when `force_install_dir` is not defined) | No                |
+| Path                                     | Description                                                                         | Volume Definition |
+|------------------------------------------|-------------------------------------------------------------------------------------|-------------------|
+| `/root/.config/unity3d/IronGate/Valheim` | Where games usually store their saves.                                              | Yes               |
