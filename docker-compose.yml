@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    image: ghcr.io/mts-gaming/valheim:latest
+    ports:
+      - "2456:2456/udp"
+      - "2456:2456/tcp"
+      - "2457:2457/tcp"
+    environment:
+      - VALHEIM_NAME: Valheim Online
+      - VALHEIM_PORT: 2456
+      - VALHEIM_PASSWORD: ThorOdinson
+      - VALHEIM_WORLD: valheim
+      - VALHEIM_PUBLIC: 1
+    volumes:
+      - valheim:/root/.config/unity3d/IronGate/Valheim
