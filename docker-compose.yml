@@ -2,6 +2,8 @@ version: "3.9"
 services:
   valheim:
     image: ghcr.io/mts-gaming/valheim:latest
+    cpus: 4
+    mem_limit: 6144m
     ports:
       - "2456:2456/udp"
       - "2456:2456/tcp"
