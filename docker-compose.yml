@@ -14,3 +14,6 @@ services:
       VALHEIM_PUBLIC: 1
     volumes:
       - valheim:/root/.config/unity3d/IronGate/Valheim
+
+volumes:
+  valheim:
