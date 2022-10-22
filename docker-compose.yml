@@ -4,6 +4,7 @@ services:
     image: ghcr.io/mts-gaming/valheim:latest
     cpus: 4
     mem_limit: 6144m
+    restart: on-failure
     ports:
       - "2456:2456/udp"
       - "2456:2456/tcp"
