@@ -10,10 +10,10 @@ docker run -d \
     -e VALHEIM_PASSWORD="ThorOdinson" \
     -e VALHEIM_WORLD="valheim" \
     -e VALHEIM_PUBLIC="1" \
-    -p 2456:2456/udp
-    -p 2456:2456/tcp
-    -p 2457:2457/tcp
-    -v valheim:/root/.config/unity3d/IronGate/Valheim
+    -p 2456:2456/udp \
+    -p 2456:2456/tcp \
+    -p 2457:2457/tcp \
+    -v valheim:/root/.config/unity3d/IronGate/Valheim \
     ghcr.io/mts-gaming/valheim:latest
 ```
 
@@ -29,6 +29,6 @@ docker run -d \
 
 ## Volumes
 
-| Path                                     | Description                                                                         | Volume Definition |
-|------------------------------------------|-------------------------------------------------------------------------------------|-------------------|
-| `/root/.config/unity3d/IronGate/Valheim` | Where games usually store their saves.                                              | Yes               |
+| Path                                     | Description           | Volume Definition |
+|------------------------------------------|-----------------------|-------------------|
+| `/root/.config/unity3d/IronGate/Valheim` | Valheim save location | Yes               |

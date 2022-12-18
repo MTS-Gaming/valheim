@@ -29,7 +29,8 @@ CMD ./valheim_server.x86_64 \
     -port ${VALHEIM_PORT} \
     -world ${VALHEIM_WORLD} \
     -password ${VALHEIM_PASSWORD} \
-    -public ${VALHEIM_PUBLIC}
+    -public ${VALHEIM_PUBLIC} \
+    -crossplay
 
 EXPOSE 2456/udp
 EXPOSE 2457/udp
