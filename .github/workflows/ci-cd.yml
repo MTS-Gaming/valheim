@@ -13,6 +13,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      CI_COMMIT_MESSAGE: [CI/CD] Update
+      CI_COMMIT_AUTHOR: CI/CD
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -51,3 +54,14 @@ jobs:
             ghcr.io/${{ steps.string.outputs.lowercase }}:${{ steps.vars.outputs.sha_short }}
             ghcr.io/${{ steps.string.outputs.lowercase }}:latest
           pull: true
+
+      - name: Update Docker Compose
+        id: vars
+        run: sed -i "s#mts-gaming/valheim:[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]#mts-gaming/valheim:$(git rev-parse --short HEAD)#g" docker-compose.yml
+
+      - name: GIT Commit Docker Compose
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push
