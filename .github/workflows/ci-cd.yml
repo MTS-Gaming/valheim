@@ -53,7 +53,6 @@ jobs:
           pull: true
 
       - name: Update Docker Compose
-        id: vars
         run: sed -i "s#mts-gaming/valheim:[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]#mts-gaming/valheim:$(git rev-parse --short HEAD)#g" docker-compose.yml
 
       - name: GIT Commit Docker Compose
