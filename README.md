@@ -5,15 +5,15 @@ The Valheim dedicated server in a container
 
 ```bash
 docker run -d \
+    --name valheim \
     -e VALHEIM_NAME="Valheim Online" \
     -e VALHEIM_PORT="2456" \
     -e VALHEIM_PASSWORD="ThorOdinson" \
     -e VALHEIM_WORLD="valheim" \
     -e VALHEIM_PUBLIC="1" \
     -p 2456:2456/udp \
-    -p 2456:2456/tcp \
     -p 2457:2457/tcp \
-    -v valheim:/root/.config/unity3d/IronGate/Valheim \
+    -v $(docker volume create valheim):/root/.config/unity3d/IronGate/Valheim \
     ghcr.io/mts-gaming/valheim:latest
 ```
 
