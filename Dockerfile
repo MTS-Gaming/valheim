@@ -33,7 +33,6 @@ CMD ./valheim_server.x86_64 \
     -crossplay
 
 EXPOSE 2456/udp
-EXPOSE 2457/udp
-EXPOSE 2458/udp
+EXPOSE 2457/tcp
 
 VOLUME [ "/root/.config/unity3d/IronGate/Valheim" ]
