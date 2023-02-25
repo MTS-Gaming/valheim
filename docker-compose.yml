@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   valheim:
-    image: ghcr.io/mts-gaming/valheim:ea74423
+    image: ghcr.io/mts-gaming/valheim:ad59409
     restart: on-failure
     ports:
       - "2456:2456/udp"
